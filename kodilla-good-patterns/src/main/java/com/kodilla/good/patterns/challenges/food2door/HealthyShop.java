@@ -9,7 +9,7 @@ public class HealthyShop implements Shop {
     public void process(Order order) {
         for(String product : order.getOrders().keySet()) {
             if(getProductList().containsKey(product) &&
-                    order.getOrders().get(product) < getProductList().get(product)) {
+                    order.getOrders().get(product) <= getProductList().get(product)) {
                 System.out.println("Ordered: " + product +
                         "\n Delivery address: " + order.getAddress());
             } else {
