@@ -36,9 +36,9 @@ public class FlightFinder {
                 .filter(f -> f.getArrivalAirport().equals(to))
                 .collect(Collectors.toList());
         if(result.isEmpty()) {
-            System.out.println("The flight cannot be founded. Try again.");
+            System.out.println("\nThe flight cannot be founded. Try again.");
         } else  {
-            System.out.println("Available flights to the selected airport:");
+            System.out.println("\nAvailable flights to the selected airport:");
             for(Flight flight : result) {
                 System.out.println(flight.toString());
             }
@@ -51,11 +51,21 @@ public class FlightFinder {
                 .filter(f -> f.getDepartureAirport().equals(via))
                 .collect(Collectors.toList());
         if(result.isEmpty()) {
-            System.out.println("The flight cannot be founded. Try again.");
+            System.out.println("\nThe flight cannot be founded. Try again.");
         } else {
             for(Flight flight : result) {
-                System.out.println("Available flights to " + flight.getArrivalAirport() + " via " + flight.getDepartureAirport());
+                System.out.println("\nAvailable flights to " + flight.getArrivalAirport() + " via " + flight.getDepartureAirport());
             }
         }
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }
