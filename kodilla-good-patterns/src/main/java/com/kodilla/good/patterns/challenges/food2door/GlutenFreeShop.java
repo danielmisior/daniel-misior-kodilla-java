@@ -7,11 +7,17 @@ public class GlutenFreeShop implements Shop {
 
     @Override
     public void process(Order order) {
+        System.out.println('\n' + "Order from GlutenFreeShop");
+
         for(String product : order.getOrders().keySet()) {
             if(getProductList().containsKey(product) &&
                     order.getOrders().get(product) <= getProductList().get(product)) {
                 System.out.println("Ordered: " + product +
-                        "\n Delivery address: " + order.getAddress());
+                        "\nDelivery address: " + order.getAddress());
+            } else if(getProductList().containsKey(product) &&
+                    order.getOrders().get(product) > getProductList().get(product)){
+                System.out.println("We don't have enough " + product +
+                        '\n' + product + " in stock: " + getProductList().get(product));
             } else {
                 System.out.println(product + " is unavailable now.");
             }

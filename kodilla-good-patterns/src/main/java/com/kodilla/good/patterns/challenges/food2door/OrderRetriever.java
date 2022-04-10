@@ -8,8 +8,9 @@ public class OrderRetriever {
     public Order retrieve() {
 
         Map<String, Integer> order1 = new HashMap<>();
-        order1.put("Water 1L", 4);
+        order1.put("Water 1L", 55);
         order1.put("Garlic", 2);
+        order1.put("Sunflower seeds", 5);
 
         return new Order(order1, "Konopnicka 10, 50-452 Wroclaw");
     }
