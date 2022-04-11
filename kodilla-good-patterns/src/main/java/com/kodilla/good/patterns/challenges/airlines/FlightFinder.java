@@ -17,10 +17,11 @@ public class FlightFinder {
         return flights;
     }
 
-    public void findFlightFrom(String from) {
+    public List<Flight> findFlightFrom(String from) {
         List<Flight> result = getFlights().stream()
                 .filter(f -> f.getDepartureAirport().equals(from))
                 .collect(Collectors.toList());
+
         if(result.isEmpty()) {
             System.out.println("The flight cannot be founded. Try again.");
         } else {
@@ -29,12 +30,14 @@ public class FlightFinder {
                 System.out.println(flight.toString());
             }
         }
+        return result;
     }
 
-    public void findFlightTo(String to) {
+    public List<Flight> findFlightTo(String to) {
         List<Flight> result = getFlights().stream()
                 .filter(f -> f.getArrivalAirport().equals(to))
                 .collect(Collectors.toList());
+
         if(result.isEmpty()) {
             System.out.println("\nThe flight cannot be founded. Try again.");
         } else  {
@@ -43,9 +46,10 @@ public class FlightFinder {
                 System.out.println(flight.toString());
             }
         }
+        return result;
     }
 
-    public void findFlightVia(String to, String via) {
+    public List<Flight> findFlightVia(String to, String via) {
         List<Flight> result = getFlights().stream()
                 .filter(f -> f.getArrivalAirport().equals(to))
                 .filter(f -> f.getDepartureAirport().equals(via))
@@ -57,6 +61,7 @@ public class FlightFinder {
                 System.out.println("\nAvailable flights to " + flight.getArrivalAirport() + " via " + flight.getDepartureAirport());
             }
         }
+        return result;
     }
 
     @Override
