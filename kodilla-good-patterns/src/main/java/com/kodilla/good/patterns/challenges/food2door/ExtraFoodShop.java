@@ -9,18 +9,23 @@ public class ExtraFoodShop implements Shop {
     public void process(Order order) {
         System.out.println('\n' + "Order from ExtraFoodShop");
 
-        for(String product : order.getOrders().keySet()) {
-            if(getProductList().containsKey(product) &&
-                    order.getOrders().get(product) <= getProductList().get(product)) {
-                System.out.println("Ordered: " + product +
-                        "\nDelivery address: " + order.getAddress());
-            } else if(getProductList().containsKey(product) &&
-                    order.getOrders().get(product) > getProductList().get(product)){
-                System.out.println("We don't have enough " + product +
-                        '\n' + product + " in stock: " + getProductList().get(product));
-            } else {
-                System.out.println(product + " is unavailable now.");
+        try {
+            for(String product : order.getOrders().keySet()) {
+                if(order.getOrders().get(product) <= getProductList().get(product)) {
+                    System.out.println("Ordered: " + product +
+                            "\nDelivery address: " + order.getAddress());
+                } else if(getProductList().containsKey(product) &&
+                        order.getOrders().get(product) > getProductList().get(product)){
+                    System.out.println("We don't have enough " + product +
+                            '\n' + product + " in stock: " + getProductList().get(product));
+                } else {
+                    System.out.println(product + " is unavailable now.");
+                }
             }
+        } catch(Exception e) {
+            System.out.println("Selected product is unavailable now or " +
+                    "we don't have enough products in stock." +
+                    "\nPlease, check your shopping cart.");
         }
     }
 
