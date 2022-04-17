@@ -13,48 +13,24 @@ public class CalculatorTestSuite {
     private Calculator calculator;
 
     @Test
-    public void testAdd() {
-        //Given
-        //When
-        double result = calculator.add(10, 20);
-
-        //Then
-        assertEquals(result, 30);
-    }
-
-    @Test
-    public void testSub() {
-        //Given
-        //When
-        double result = calculator.sub(20, 10);
-
-        //Then
-        assertEquals(result, 10);
-    }
-
-    @Test
-    public void testMul() {
-        //Given
-        //When
-        double result = calculator.mul(12, 12);
-
-        //Then
-        assertEquals(result, 144);
-    }
-
-    @Test
-    public void testDiv() {
+    public void testCalculations() {
         try {
             //Given
             //When
-            double result = calculator.div(5, 5);
-            double exceptionExpected = calculator.div(5, 0);
+            double addResult = calculator.add(10, 20);
+            double subResult = calculator.sub(10, 20);
+            double mulResult = calculator.mul(10, 20);
+            double divResult = calculator.div(10, 20);
+            double exceptionExpected = calculator.div(10, 0);
 
             //Then
-            assertEquals(result, 25);
-            assertEquals(exceptionExpected, "The division by 0 is forbidden.");
+            assertEquals(addResult, 30);
+            assertEquals(subResult, -10);
+            assertEquals(mulResult, 200);
+            assertEquals(divResult, 0.5);
+            assertEquals(exceptionExpected, "Cannot be divided by 0");
         } catch (ArithmeticException e) {
-            System.out.println("The division by 0 is forbidden.");
+            System.out.println("Cannot be divided by 0");
         }
     }
 }
