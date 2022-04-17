@@ -1,12 +1,16 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.6'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
     id 'java'
 }
 
 group = 'com.kodilla'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+
+springBoot {
+    mainClass = 'com.kodilla.good.patterns.challenges.MovieStoreApp'
+}
 
 repositories {
     mavenCentral()
