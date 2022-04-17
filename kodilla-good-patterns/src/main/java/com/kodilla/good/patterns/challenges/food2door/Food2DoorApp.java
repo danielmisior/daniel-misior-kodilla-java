@@ -9,8 +9,8 @@ public class Food2DoorApp {
 
         try {
             extraFoodShop.process(orderRetriever.retrieve());
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Not enough products in stock.");
+        } catch (OutOfStockException e) {
+            System.out.println("Ops! Something went wrong: " + e);
         }
     }
 }
