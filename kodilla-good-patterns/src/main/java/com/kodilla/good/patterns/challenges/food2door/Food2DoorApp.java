@@ -7,6 +7,10 @@ public class Food2DoorApp {
         OrderRetriever orderRetriever = new OrderRetriever();
         ExtraFoodShop extraFoodShop = new ExtraFoodShop();
 
-        extraFoodShop.process(orderRetriever.retrieve());
+        try {
+            extraFoodShop.process(orderRetriever.retrieve());
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Not enough products in stock.");
+        }
     }
 }
