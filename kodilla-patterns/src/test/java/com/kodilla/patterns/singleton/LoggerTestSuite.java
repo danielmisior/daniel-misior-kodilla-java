@@ -9,10 +9,11 @@ public class LoggerTestSuite {
     @Test
     void testGetLastLog() {
         //Given
-        Logger.getInstance().log("Last log");
+        Logger logger = Logger.INSTANCE;
 
         //When
-        String lastLog = Logger.getInstance().getLastLog();
+        logger.log("Last log");
+        String lastLog = logger.getLastLog();
 
         //Then
         assertEquals("Last log", lastLog);
