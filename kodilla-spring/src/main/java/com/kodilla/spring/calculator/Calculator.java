@@ -31,7 +31,7 @@ public class Calculator {
 
     public double div(double a, double b) throws ArithmeticException {
         if(b == 0) {
-            throw new ArithmeticException();
+            throw new ArithmeticException("Cannot be divided by 0");
         }
         double val = a / b;
         display.displayValue(val);
