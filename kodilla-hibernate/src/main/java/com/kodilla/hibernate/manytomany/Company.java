@@ -15,7 +15,7 @@ import java.util.List;
         @NamedNativeQuery(
                 name = "Company.findCompanyByPartOfName",
                 query = "SELECT * FROM COMPANIES" +
-                        " WHERE COMPANY_NAME LIKE :ARG",
+                        " WHERE COMPANY_NAME LIKE :nameFragment",
                 resultClass = Company.class
         )
 })

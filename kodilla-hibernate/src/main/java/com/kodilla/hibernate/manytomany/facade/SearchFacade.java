@@ -25,13 +25,13 @@ public class SearchFacade {
         this.employeeDao = employeeDao;
     }
 
-    public List<Company> findCompanyByPartOfName(String ARG) throws SearchException {
-        ARG = '%' + ARG + '%';
-        return companyDao.findCompanyByPartOfName(ARG);
+    public List<Company> findCompanyByPartOfName(String nameFragment) throws SearchException {
+        nameFragment = '%' + nameFragment + '%';
+        return companyDao.findCompanyByPartOfName(nameFragment);
     }
 
-    public List<Employee> findEmployeeByPartOfName(String ARG) throws SearchException {
-        ARG = '%' + ARG + '%';
-        return employeeDao.findEmployeeByPartOfName(ARG);
+    public List<Employee> findEmployeeByPartOfName(String nameFragment) throws SearchException {
+        nameFragment = '%' + nameFragment + '%';
+        return employeeDao.findEmployeeByPartOfName(nameFragment);
     }
 }
