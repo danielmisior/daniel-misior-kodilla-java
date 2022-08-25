@@ -12,7 +12,7 @@ import java.util.List;
         ),
         @NamedQuery(
                 name = "Employee.findEmployeeByPartOfName",
-                query = "FROM Employee WHERE firstname LIKE :nameFragment OR lastname LIKE :nameFragment"
+                query = "FROM Employee WHERE firstname LIKE :NAMEFRAGMENT OR lastname LIKE :NAMEFRAGMENT"
         )
 })
 @Entity
