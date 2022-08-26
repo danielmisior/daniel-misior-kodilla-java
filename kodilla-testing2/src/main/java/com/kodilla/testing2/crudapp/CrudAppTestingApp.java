@@ -10,7 +10,7 @@ public class CrudAppTestingApp {
     public static final String XPATH_INPUT = "/html/body/main/section/form/fieldset/input";
     public static final String XPATH_TEXTAREA = "/html/body/main/section/form/fieldset[2]/textarea";
     public static final String XPATH_WAIT_FOR = "//select[1]";
-    public static final String XPATH_SELECT = "//div[contains(@class, \"task-container\")]/form/div/fieldset/select[1]";
+    public static final String XPATH_SELECT = "//div[contains(@class, \"tasks-container\")]/form/div/fieldset/select[1]";
 
     public static void main(String[] args) {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.CHROME);
@@ -24,7 +24,7 @@ public class CrudAppTestingApp {
 
         while (!driver.findElement(By.xpath(XPATH_WAIT_FOR)).isDisplayed());
 
-        WebElement selectCombo = driver.findElement(By.xpath(XPATH_WAIT_FOR));
+        WebElement selectCombo = driver.findElement(By.xpath(XPATH_SELECT));
         Select selectBoard = new Select(selectCombo);
         selectBoard.selectByIndex(1);
     }
